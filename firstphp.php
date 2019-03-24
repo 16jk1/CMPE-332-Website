@@ -19,7 +19,7 @@ echo "<p>Here is a list of all the professors at the university and their salari
 echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=university', "root", "");
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
 $sql = "select fName, lName from committee, committeemember where committee.type = committeemember.position and commName= ?";
 $stmt = $pdo->prepare($sql);   #create the query
