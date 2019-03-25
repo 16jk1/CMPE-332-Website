@@ -23,20 +23,24 @@
 <body>
 
 
-<h2>Professional Registration</h2>
+<h2>Post a New Job Position</h2>
 
-<form action="professionalregphp.php" method="POST">
-<p>First name:</p>
-<input type="text" name="firstname" placeholder = "Bob" required>
+<form action="addSponsorphp.php" method="POST">
+<p>Company Name:</p>
+<input type="text" name="company" placeholder = "Microsoft"  required>
 <br>
-<p>Last name:</p>
-<input type="text" name="lastname" placeholder = "Lee"  required>
+<p>Job Title:</p>
+<input type="text" name="jobtitle" placeholder = "Data Scientist"  required>
 <br>
-<p>Profession:</p>
-<input type="text" name="profession" placeholder = "Software Engineer" required>
+<p>City:</p>
+<input type="text" name="city" placeholder = "Toronto"  required>
 <br>
-<p>Email:</p>
-<input type="text" name="email" placeholder = "****@hotmail.com"  required><br>
+<p>Province:</p>
+<input type="text" name="province" placeholder = "Ontario"  required>
+<br>
+<p>Pay Rate:</p>
+<input type="text" name="payRate" placeholder = "14.00"  required>
+<br>
 <input type="submit">
 </form> 
 

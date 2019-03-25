@@ -15,11 +15,28 @@
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
 <li><a href="registration.html">Registration</a></li>  
+  <li><a href="totalReg.php">Total Registration</a></li>  
 </div>
 </ul>
 </div>
 
 <body>
+
+<table>
+ <tr>
+  <td>
+   <button name="Remove" type="submit" onclick="return 
+     table_raw()">HTML</button>
+  </td>
+ </tr>
+</table>
+
+<script>
+public function table_raw(){
+$delete_data = "DELETE FROM TableName WHERE ID= your_fetch_id";
+return $delete_data;
+}
+</script>
 <h2>Sponsors</h2>
 
 
@@ -40,6 +57,7 @@ $stmt->execute();   #bind the parameters
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
 while ($row = $stmt->fetch()) {
+	#echo "<tr><td>".$row["compName"]."</td><td>".$row["sponsorshipLvl"]."</td><td>.<button name="Remove" type="submit" onclick="return table_raw()">Remove</button>.</td></tr>";
 	echo "<tr><td>".$row["compName"]."</td><td>".$row["sponsorshipLvl"]."</td></tr>";
 }
 
