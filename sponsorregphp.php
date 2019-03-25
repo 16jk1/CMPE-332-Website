@@ -39,7 +39,7 @@ echo "You must pay $rate.";
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "insert into sponsor(fName, lName, rate, email, company, sponsorID) values ('$s_id','$givenName','$surname','$rate','$company','$s_email')";
+$sql = "insert into sponsor(fName, lName, rate, email, company, sponsorID) values ('$givenName','$surname','$rate','$s_email','$company','$s_id')";
 #$stmt = $pdo->prepare($sql);   #create the query
 $pdo->exec($sql);   #bind the parameters
 

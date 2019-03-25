@@ -22,31 +22,41 @@
 </div>
 
 <body>
-<br>
-        <form action="DeleteSponsor.php" method="post">
 
-          Company To Delete : <input type="text" name="compName" required><br><br>
-
-          <input type="submit" name="delete" value="Delete Data">
-
-        </form>
 
 <h2>Sponsors</h2>
+
 <?php
-	
-echo "<table><tr><th>Company</th><th>Sponsorship Level</th></tr>";
-#$schedule = [session];
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select * FROM sponsorcompany";
-	$stmt = $pdo->prepare($sql);   #create the query
-	$stmt->execute();   #bind the parameters
-	while ($row = $stmt->fetch()) {
-	#echo "<tr><td>".$row["compName"]."</td><td>".$row["sponsorshipLvl"]."</td><td>.<button name="Remove" type="submit" onclick="return table_raw()">Remove</button>.</td></tr>";
-	echo "<tr><td>".$row["compName"]."</td><td>".$row["sponsorshipLvl"]."</td></tr>";
-	}
+if(isset($_POST['delete']))
+{
+    try {
+        $pdoConnect = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+    } catch (PDOException $exc) {
+        echo $exc->getMessage();
+        exit();
+    }
+    
+     // get id to delete
 
+      $compName = $_POST['compName'];
+    
+     // mysql delete query 
 
+    $pdoQuery = "DELETE FROM `sponsorcompany` WHERE `compName` = :compName";
+    
+    $pdoResult = $pdoConnect->prepare($pdoQuery);
+    
+    $pdoExec = $pdoResult->execute(array(":compName"=>$compName));
+    
+    if($pdoExec)
+    {
+        echo 'Data Deleted';
+    }else{
+        echo 'ERROR Data Not Deleted';
+    }
+
+}
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
