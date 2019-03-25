@@ -23,20 +23,15 @@
 <body>
 
 
-<h2>Professional Registration</h2>
+<h2>Add a new Sponsor Company</h2>
 
-<form action="professionalregphp.php" method="POST">
-<p>First name:</p>
-<input type="text" name="firstname" placeholder = "Bob" required>
+<form action="sponsorcompanyphp.php" method="POST">
+<p>Company Name:</p>
+<input type="text" name="company" placeholder = "Microsoft"  required>
 <br>
-<p>Last name:</p>
-<input type="text" name="lastname" placeholder = "Lee"  required>
+<p>How much are you willing to sponsor?:</p>
+<input type="text" name="rate" placeholder = "1000.00"  required>
 <br>
-<p>Profession:</p>
-<input type="text" name="profession" placeholder = "Software Engineer" required>
-<br>
-<p>Email:</p>
-<input type="text" name="email" placeholder = "****@hotmail.com"  required><br>
 <input type="submit">
 </form> 
 

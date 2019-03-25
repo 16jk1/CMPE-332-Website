@@ -15,36 +15,47 @@
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
   <li><a href="registration.html">Registration</a></li>
-  <li><a href="totalReg.php">Total Registration</a></li>  
+    <li><a href="totalReg.php">Total Registration</a></li>  
 </div>
 </ul>
 </div>
 
 <body>
-<h2>Students</h2>
+<h2>Sponsor</h2>
 
 
 <?php
-$s_id = $_POST["sid"];
-$givenName = $_POST["firstname"];                      
-$surname = $_POST["lastname"];
-$s_email = $_POST["email"];
-$rate = 50.00;
-$hotelroom = mt_rand(1,100)%3 + 500;
-echo "$s_id,$givenName,$surname,$s_email,$rate,$hotelroom";
-echo "Hey $givenName!";
-echo "Your Hotel Room Number is $hotelroom.";
-echo "You must pay $rate.";
+$company = $_POST["company"];
+$jobtitle = $_POST["jobtitle"];                      
+$city = $_POST["city"];
+$province = $_POST["province"];
+$payRate = $_POST["payRate"];
+echo "$company,$jobtitle,$city,$province,$payRate";
+echo "Hello $company!";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "insert into student(ID,fName, lName, rate, email, hotelRoomNum) values ('$s_id','$givenName','$surname','$rate','$s_email','$hotelroom')";
-#$stmt = $pdo->prepare($sql);   #create the query
-$pdo->exec($sql);   #bind the parameters
+
+$sql = "select compName from sponsorcompany where compName = '$company'";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();
+
+if($stmt->rowCount() != 0){
+	
+$sql = "insert into ads (compName,jobtitle,city,province,payRate) values ('$company','$jobtitle','$city','$province','$payRate')";
+$pdo->exec($sql); 
+   #bind the parameters
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
+
+}
+else{
+	echo "That company does not exist in the database";
+}
+
+
 
 
 $pdo = null;

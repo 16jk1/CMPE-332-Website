@@ -15,31 +15,41 @@
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
   <li><a href="registration.html">Registration</a></li>
-  <li><a href="totalReg.php">Total Registration</a></li>  
+    <li><a href="totalReg.php">Total Registration</a></li>  
 </div>
 </ul>
 </div>
 
 <body>
-<h2>Students</h2>
+<h2>Sponsor</h2>
 
 
-<?php
-$s_id = $_POST["sid"];
-$givenName = $_POST["firstname"];                      
-$surname = $_POST["lastname"];
-$s_email = $_POST["email"];
-$rate = 50.00;
-$hotelroom = mt_rand(1,100)%3 + 500;
-echo "$s_id,$givenName,$surname,$s_email,$rate,$hotelroom";
-echo "Hey $givenName!";
-echo "Your Hotel Room Number is $hotelroom.";
-echo "You must pay $rate.";
+<?php                     
+$rate = $_POST["rate"];
+$company = $_POST["company"];
+
+if ($rate >= 1000 && $rate < 3000){
+	$lvl = "Bronze";
+	$email = 0;
+}
+else if ($rate >= 3000 && $rate < 5000){
+	$lvl = "Silver";
+	$email = 3;
+}
+else if ($rate >= 5000 && $rate < 10000){
+	$lvl = "Gold";
+	$email = 4;
+}
+else if ($rate >= 10000){
+	$lvl = "Platinum";
+	$email = 5;
+}
+
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "insert into student(ID,fName, lName, rate, email, hotelRoomNum) values ('$s_id','$givenName','$surname','$rate','$s_email','$hotelroom')";
+$sql = "insert into sponsorcompany(compName, sponsorshipLvl, numOfEmailSent) values ('$company','$lvl','$email')";
 #$stmt = $pdo->prepare($sql);   #create the query
 $pdo->exec($sql);   #bind the parameters
 
@@ -50,6 +60,7 @@ $pdo->exec($sql);   #bind the parameters
 $pdo = null;
 
 ?>
+<h2>Click <a href ="sponsorreg.php" >Here</a> to register for the conference</h2>
 
 </body>
 </html> 

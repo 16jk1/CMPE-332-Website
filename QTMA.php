@@ -15,6 +15,7 @@
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>  
   <li><a href="registration.html">Registration</a></li>
+    <li><a href="totalReg.php">Total Registration</a></li>  
 </div>
 </ul>
 </div>
