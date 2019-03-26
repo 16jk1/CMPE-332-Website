@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -15,93 +15,95 @@
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
   <li><a href="registration.html">Registration</a></li>
-    <li><a href="totalReg.php">Total Registration</a></li>  
+    <li><a href="totalReg.php">Total Registration</a></li>
 </div>
 </ul>
 </div>
 
 <body>
-<h2>Students</h2>
+
+  <div class="table-container">
+    <h2 class="table-title">Students</h2>
+    <?php
+
+    #$schedule = [session];
 
 
-<?php
+    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
-#$schedule = [session];
+    #connect to the database
+    $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
+    $sql = "select fName, lName FROM student";
+    $stmt = $pdo->prepare($sql);   #create the query
+    $stmt->execute();   #bind the parameters
 
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
-
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-
-$sql = "select fName, lName FROM student";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute();   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
+    #stmt contains the result of the program execution
+    #use fetch to get results row by row.
+    while ($row = $stmt->fetch()) {
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    }
 
 
-?>
-</table>
-
-<h2>Professsionals</h2>
-
-
-<?php
-
-#$schedule = [session];
+    ?>
+    </table>
+  </div>
 
 
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+  <div class="table-container">
+    <h2 class="table-title">Professsionals</h2>
+    <?php
 
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-
-$sql = "select fName, lName FROM professional";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute();   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
+    #$schedule = [session];
 
 
-?>
-</table>
+    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
-<h2>Sponsors</h2>
+    #connect to the database
+    $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
+    $sql = "select fName, lName FROM professional";
+    $stmt = $pdo->prepare($sql);   #create the query
+    $stmt->execute();   #bind the parameters
 
-<?php
-
-#$schedule = [session];
-
-
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
-
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-
-$sql = "select fName, lName FROM sponsor";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute();   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
+    #stmt contains the result of the program execution
+    #use fetch to get results row by row.
+    while ($row = $stmt->fetch()) {
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    }
 
 
-?>
-</table>
+    ?>
+    </table>
+  </div>
+
+  <div class="table-container">
+    <h2 class="table-title">Sponsors</h2>
+    <?php
+
+    #$schedule = [session];
 
 
+    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+
+    #connect to the database
+    $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+
+    $sql = "select fName, lName FROM sponsor";
+    $stmt = $pdo->prepare($sql);   #create the query
+    $stmt->execute();   #bind the parameters
+
+    #stmt contains the result of the program execution
+    #use fetch to get results row by row.
+    while ($row = $stmt->fetch()) {
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    }
+
+
+    ?>
+    </table>
+  </div>
+  <div class="table-container">
+  </div>
 </body>
-</html> 
+</html>

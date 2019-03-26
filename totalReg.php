@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -14,39 +14,39 @@
   <li><a href="schedule.php">Schedule</a></li>
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
-  <li><a href="registration.html">Registration</a></li>  
-  <li><a href="totalReg.php">Total Registration</a></li>  
+  <li><a href="registration.html">Registration</a></li>
+  <li><a href="totalReg.php">Total Registration</a></li>
 </div>
 </ul>
 </div>
 
 <body>
-<h2>Registration Information</h2>
+<div class="table-container">
+  <h2 class="table-title">Registration Information</h2>
+    <?php
 
+    echo "<table><tr><th>Total Registrations</th><th>Total Amount</th></tr>";
 
-<?php
+    #connect to the database
+    $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-echo "<table><tr><th>Total Registrations</th><th>Total Amount</th></tr>";
+    $sql = "select COUNT(ID), SUM(rate) from (
+    select ID, rate from student
+    union
+    select sponsorID, rate from sponsor
+    union
+    select professionID, rate from professional
+    ) as tem
+    ";
 
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();   #bind the parameters
+    while ($row = $stmt->fetch()) {
+    	echo "<tr><td>".$row["COUNT(ID)"]."</td><td>".$row["SUM(rate)"]."</td></tr>";
+    }
 
-$sql = "select COUNT(ID), SUM(rate) from (
-select ID, rate from student
-union 
-select sponsorID, rate from sponsor 
-union
-select professionID, rate from professional
-) as tem
-";
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute();   #bind the parameters
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["COUNT(ID)"]."</td><td>".$row["SUM(rate)"]."</td></tr>";
-}
-
-?>
+    ?>
+</div>
 </table>
 </body>
-</html> 
+</html>
