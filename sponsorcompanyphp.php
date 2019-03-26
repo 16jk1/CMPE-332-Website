@@ -49,7 +49,7 @@ else if ($rate >= 10000){
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "insert into sponsorcompany(compName, sponsorshipLvl, numOfEmailSent) values ('$company','$lvl','$email')";
+$sql = "insert into SponsorCompany(compName, sponsorshipLvl, numOfEmailSent) values ('$company','$lvl','$email')";
 #$stmt = $pdo->prepare($sql);   #create the query
 $pdo->exec($sql);   #bind the parameters
 

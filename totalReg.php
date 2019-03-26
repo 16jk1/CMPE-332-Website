@@ -24,7 +24,6 @@
   </header>
 
 <body>
-
   <section id="showcase">
     <div class="p1">
       <h1>Registration Information</h1>
@@ -33,25 +32,8 @@
 
   <section id="showcase2">
     <div class="p2">
-      <h2>9</h2>
-      <p> The total amount of registrations in the last 24 hours. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Malesuada fames ac turpis egestas maecenas.</p>
-    </div>
-  </section>
-
-  <section id="showcase3">
-    <div class="p3">
-      <h3>450</h3>
-      <p> The total amount of revenue raised by the conference. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Malesuada fames ac turpis egestas maecenas.</p>
-    </div>
-  </section>
-
+      <h2>
 <?php
-
-echo "<table><tr><th>Total Registrations</th><th>Total Amount</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
@@ -68,10 +50,42 @@ select professionID, rate from professional
 $stmt = $pdo->prepare($sql);
 $stmt->execute();   #bind the parameters
 while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["COUNT(ID)"]."</td><td>".$row["SUM(rate)"]."</td></tr>";
+	echo $row["COUNT(ID)"];
 }
 
-?>
-</table>
+?></h2>
+      <p> The total amount of registrations in the last 24 hours.</p>
+    </div>
+  </section>
+
+  <section id="showcase3">
+    <div class="p3">
+      <h3>$<?php
+
+#connect to the database
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+
+$sql = "select COUNT(ID), SUM(rate) from (
+select ID, rate from student
+union
+select sponsorID, rate from sponsor
+union
+select professionID, rate from professional
+) as tem
+";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute();   #bind the parameters
+while ($row = $stmt->fetch()) {
+	echo $row["SUM(rate)"];
+}
+
+?></h3>
+      <p> The total amount of revenue raised by the conference. </p>
+    </div>
+  </section>
+  
+  
+  
 </body>
 </html>

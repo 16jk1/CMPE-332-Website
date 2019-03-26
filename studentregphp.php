@@ -30,8 +30,28 @@ $givenName = $_POST["firstname"];
 $surname = $_POST["lastname"];
 $s_email = $_POST["email"];
 $rate = 50.00;
-$hotelroom = mt_rand(1,100)%3 + 500;
+$hotelroom = mt_rand(1,100)%5 + 500;
 
+while($notfull == false){
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '$hotelroom'";
+$stmt = $pdo->prepare($sql2);
+$stmt->execute();
+$result = $stmt->fetchColumn();
+
+if($hotelroom == 500)
+	$numbed = 2;
+else if ($hotelroom == 501)
+	$numbed = 1;
+else if ($hotelroom == 502)
+	$numbed = 3;
+
+if ( $result == $numbed){
+	$hotelroom = mt_rand(1,100)%5 + 500;
+}
+else	
+	$notfull = true;
+}
 echo "Hey $givenName!";
 echo "Your Hotel Room Number is $hotelroom.";
 echo "You must pay $rate.";

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link href="schedule.css" type="text/css" rel="stylesheet" >
-
+<link href="indexCSS.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -24,7 +23,6 @@
 <body>
 <h2>Conference Schedule</h2>
 <h2>Pick a Date to View</h2>
-
 <form action="scheduleView.php" method="POST">
 <select name="date" id="schedule" required>
 <option value="" selected="selected">Select a date..</option>
@@ -39,17 +37,19 @@
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
 
-<div class="table-container">
 <?php
 
-#$schedule = [session];
-echo "<h2>All Events</h2>";
+$date = $_POST["date"];
+	
+echo "<h2>$date</h2>";
 echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th><th>Date</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-
-$sql = "select * FROM session";
+If($date != "All Events")
+	$sql = "select * FROM session where date = '$date'";
+else
+	$sql = "select * FROM session";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
@@ -62,7 +62,7 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-</div>
+
 <h2><a href="changescheduletime.php">Change Schedule</a></h2>
 
 </body>

@@ -31,20 +31,32 @@ $surname = $_POST["lastname"];
 $s_email = $_POST["email"];
 $rate = 0;
 $company = $_POST["company"];
-echo "$s_id,$givenName,$surname,$s_email,$rate,$company";
-echo "Hello $givenName from $company!";
-echo "Your Sponsor ID is $s_id.";
-echo "You must pay $rate.";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "select compName from sponsorcompany where compName = '$company'";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();
+
+if($stmt->rowCount() != 0){
+	
 $sql = "insert into sponsor(fName, lName, rate, email, company, sponsorID) values ('$givenName','$surname','$rate','$s_email','$company','$s_id')";
 #$stmt = $pdo->prepare($sql);   #create the query
 $pdo->exec($sql);   #bind the parameters
 
+echo "Hello $givenName from $company!";
+echo "Your Sponsor ID is $s_id.";
+echo "You must pay $rate.";
+}
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
+else{
+	echo "That company does not exist in the database!!";
+	echo "<br>";
+	echo "Register to become a sponsor first!";
+}
 
 
 $pdo = null;

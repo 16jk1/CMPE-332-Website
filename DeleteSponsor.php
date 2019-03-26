@@ -28,35 +28,36 @@
 
 <?php
 
-if(isset($_POST['delete']))
-{
+$compName = $_POST["compName"]; 
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "select compName from SponsorCompany where compName = '$compName'";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();
+
+if($stmt->rowCount() != 0){
     try {
-        $pdoConnect = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-    } catch (PDOException $exc) {
-        echo $exc->getMessage();
-        exit();
+        $conn = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // sql to delete a record
+    $sql = "DELETE FROM sponsorcompany WHERE compName = '$compName'";
+
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo "Record deleted successfully";
     }
-    
-     // get id to delete
-
-      $compName = $_POST['compName'];
-    
-     // mysql delete query 
-
-    $pdoQuery = "DELETE FROM `sponsorcompany` WHERE `compName` = :compName";
-    
-    $pdoResult = $pdoConnect->prepare($pdoQuery);
-    
-    $pdoExec = $pdoResult->execute(array(":compName"=>$compName));
-    
-    if($pdoExec)
+catch(PDOException $e)
     {
-        echo 'Data Deleted';
-    }else{
-        echo 'ERROR Data Not Deleted';
+    echo $sql . "<br>" . $e->getMessage();
     }
-
 }
+else{
+	echo "That Company Does not Exists!";
+}
+$conn = null;
+
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.

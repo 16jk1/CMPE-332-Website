@@ -21,85 +21,23 @@
 </div>
 
 <body>
-<h2>Hotel Room 500</h2>
 
-
-<?php
-
-$hotel500 = "500";
-$hotel501 = "501";
-$hotel502 = "502";
-
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
-
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '500'";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([$hotel500]);   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
-
-
-?>
-</table>
-
-<h2>Hotel Room 501</h2>
-<?php
-
-$hotel500 = "500";
-$hotel501 = "501";
-$hotel502 = "502";
-
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
-
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=university', "root", "");
-
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '501'";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([$hotel501]);   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
-
-
-?>
-</table>
-
-<h2>Hotel Room 502</h2>
-<?php
-
-$hotel500 = "500";
-$hotel501 = "501";
-$hotel502 = "502";
-
-echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
-
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=university', "root", "");
-
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '502'";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([$hotel502]);   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-}
-
-
-?>
-</table>
+<h2>Pick a Hotel Room to View</h2>
+<form action="hotelView.php" method="POST">
+<select name="room" id="hotel" required>
+<option value="" selected="selected">Select a room..</option>
+<option value="All Rooms">All Rooms</option>
+<option value="500">500</option>
+<option value="501">501</option>
+<option value="502">502</option>
+<option value="503">503</option>
+<option value="502">504</option>
+<option value="503">505</option>
+</select>
+<br>
+<br>
+<input type="submit" name="submit" value="See Selected Values"/>
+</form>
 
 
 </body>

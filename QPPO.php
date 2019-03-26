@@ -31,7 +31,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from committee where commName= 'QPPO'";
+$sql = "select fName, lName from committeeMember where commName= 'QPPO'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 

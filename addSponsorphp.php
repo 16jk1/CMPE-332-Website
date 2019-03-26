@@ -30,14 +30,13 @@ $jobtitle = $_POST["jobtitle"];
 $city = $_POST["city"];
 $province = $_POST["province"];
 $payRate = $_POST["payRate"];
-echo "$company,$jobtitle,$city,$province,$payRate";
-echo "Hello $company!";
+
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "select compName from sponsorcompany where compName = '$company'";
+$sql = "select compName from SponsorCompany where compName = '$company'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();
 
@@ -49,10 +48,12 @@ $pdo->exec($sql);
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
-
+echo "It has been successfully posted!";
 }
 else{
-	echo "That company does not exist in the database";
+	echo "That company does not exist in the database!!";
+	echo "<br>";
+	echo "Register to become a sponsor first!";
 }
 
 
