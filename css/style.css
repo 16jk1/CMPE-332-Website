@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
 @font-face {
-  font-family:Eth;
+  font-family: Eth;
   src: url('../fonts/Eth.ttf');
 }
 
 body {
-	margin: 0;
-	background: #222;
-	font-family: 'Work Sans', sans-serif;
-	font-weight: 800;
+  margin: 0;
+  background: #222;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 800;
 }
 
 .container {
-	width: 100%;
-	margin-right: 4px;
+  width: 100%;
+  margin-right: 4px;
 }
 
 header {
@@ -34,23 +34,22 @@ header::after {
   height: 40px;
 }
 
-
 nav {
   float: right;
-	height:60px;
+  height: 100px;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
-	right:400px;
+  right: 400px;
 }
 
 nav li {
   display: inline-block;
-  margin-left: 40px;
-	margin-right: 42px;
+  margin-left: 30px;
+  margin-right: 30px;
   padding-top: 23px;
   position: relative;
 }
@@ -71,83 +70,118 @@ nav a::before {
   display: block;
   height: 5px;
   background-color: #444;
-
   position: absolute;
   top: 0;
   width: 0%;
-
   transition: all ease-in-out 250ms;
-	top: 10px;
+  top: 10px;
 }
 
 nav a:hover::before {
   width: 100%;
 }
 
-#showcase{
+#showcase {
   padding-top: 700px;
-	background-size: cover;
-  background:url('../img/toronto.jpg') no-repeat -650px -200px;
-	border-top:#000000 1px solid;
-  border-bottom:#000000 1px solid;
-	font: 40px/1.5 Eth, Helvetica, sans-serif;
+  background-size: cover;
+  background: url('../img/toronto.jpg') no-repeat -650px -200px;
+  border-top: #000000 1px solid;
+  border-bottom: #000000 1px solid;
+  font: 40px/1.5 Eth, Helvetica, sans-serif;
 }
 
-#showcase h1{
-  margin-top:-420px;
-	margin-left:30px;
-  font-size:75px;
-	margin-bottom: -50px;
-	font-weight: bold;
+#showcase h1 {
+  margin-top: -420px;
+  margin-left: 30px;
+  font-size: 75px;
+  margin-bottom: -50px;
+  font-weight: bold;
 }
 
-#showcase p{
-	margin-left:120px;
-  font-size:50px;
-
+#showcase p {
+  margin-left: 120px;
+  font-size: 50px;
 }
 
-
-
-#showcase2{
+#showcase2 {
   padding-top: 450px;
-	background-size: cover;
-  background:url('../img/uoft.jpg') no-repeat -1080px 0px;
-	border-top:#000000 1px solid;
-  border-bottom:#000000 1px solid;
-	font: 40px/1.5 Eth, Helvetica, sans-serif;
+  background-size: cover;
+  background: url('../img/uoft.jpg') no-repeat -1080px 0px;
+  border-top: #000000 1px solid;
+  border-bottom: #000000 1px solid;
+  font: 40px/1.5 Eth, Helvetica, sans-serif;
 }
 
-#showcase2 h2{
-  margin-top:-400px;
-	margin-left:640px;
+#showcase2 h2 {
+  margin-top: -400px;
+  margin-left: 640px;
   color: #ffffff;
-  font-size:50px;
-	margin-bottom: -50px;
-	font-weight: bold;
+  font-size: 50px;
+  margin-bottom: -50px;
+  font-weight: bold;
 }
 
-#showcase2 p{
-  margin-top:90px;
-	margin-left:640px;
+#showcase2 p {
+  margin-top: 90px;
+  margin-left: 640px;
   color: #ffffff;
-  font-size:30px;
-
+  font-size: 30px;
 }
 
-#showcase3{
+#showcase3 {
   padding-top: 420px;
-	border-top:#000000 1px solid;
-  border-bottom:#000000 1px solid;
+  border-top: #000000 1px solid;
+  border-bottom: #000000 1px solid;
   background-color: #ffffff;
-	font: 40px/1.5 Eth, Helvetica, sans-serif;
+  font: 40px/1.5 Eth, Helvetica, sans-serif;
 }
 
-#showcase3 h3{
-  margin-top:-400px;
-	margin-left:615px;
+#showcase3 h3 {
+  margin-top: -400px;
+  margin-left: 615px;
   color: #000000;
-  font-size:65px;
-	margin-bottom: -50px;
-	font-weight: bold;
+  font-size: 65px;
+  margin-bottom: -50px;
+  font-weight: bold;
+}
+
+#showcase3 .p3 img {
+  width: 350px;
+  padding-top: 100px;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+/* --------- Harry's CSS ------- */
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

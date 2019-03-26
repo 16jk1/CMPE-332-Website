@@ -1,0 +1,126 @@
+Create database conference2;
+
+Create table committee (
+commName varchar(20) not null,
+numOfMembers integer,
+type varchar(30) not null,
+primary key(commName)
+);
+
+Create table committeeMember(
+fName varchar(25) not null,
+lName varchar(25) not null,
+commName varchar(20) not null,
+primary key (fName,lName),
+foreign key (commName) references committee (commName) on delete cascade
+);
+
+Create table session(
+	sessionName varchar(30) not null,
+	startTime time not null,
+	endTime time,
+	roomLocation varchar(20) not null,
+	date varchar(20),
+	primary key (sessionName)
+);
+
+
+Create table hotelRoom(
+	roomNum integer not null,
+	numOfBeds integer,
+	primary key (roomNum)
+);
+
+Create table student(
+	ID char(10) not null,
+	fName varchar (20) not null,
+	lName varchar (20) not null,
+	rate numeric(5,2) not null,
+	email varchar(30) not null,
+	hotelRoomNum integer,
+	primary key (ID),
+	foreign key (hotelRoomNum) references hotelRoom (roomNum) on delete cascade
+);
+
+Create table chair(
+committeeName varchar(20) not null,
+firstName varchar(25) not null,
+lastName varchar(25) not null,
+foreign key(committeeName) references committee(commName) on delete cascade,
+foreign key(firstName, lastName) references committeeMember(fName, lName) on delete cascade
+);
+
+Create table MC(
+firstName varchar(25) not null,
+lastName varchar(25) not null,
+seshName varchar(30) not null,
+foreign key(firstName, lastName) references committeeMember(fName, lName),
+foreign key(seshName) references session(sessionName)
+);
+
+Create table professional(
+fName varchar(20) not null,
+lName varchar(20) not null,
+rate numeric(5,2) not null,
+email varchar(30) not null,
+profession varchar(20),
+professionID varchar(20) not null,
+primary key(professionID)
+);
+
+Create table ProfessionalSpeaker(
+professionalID varchar(20) not null, 
+seshName varchar(30) not null,
+foreign key(seshName) references session(sessionName),
+foreign key(professionalID) references professional(professionID) on delete cascade
+);
+
+
+Create table sponsorCompany(
+	compName varchar(30) not null,
+	sponsorshipLvl varchar(10) not null,
+	numOfEmailSent integer, 
+	primary key (compName)
+);
+
+
+
+
+
+Create table sponsor(
+fName varchar(20) not null,
+lName varchar(20) not null,
+rate numeric(5,2) not null,
+email varchar(30) not null,
+company varchar(30) not null,
+sponsorID varchar(20) not null,
+primary key(sponsorID),
+foreign key(company) references sponsorCompany(compName) on delete cascade
+);
+
+
+Create table SponsoredSpeaker(
+SID varchar(20) not null, 
+seshName varchar(30) not null,
+foreign key(seshName) references session(sessionName),
+foreign key(SID) references sponsor(sponsorID) on delete cascade
+);
+
+Create table ads(
+	compName varchar(30) not null,
+	jobTitle varchar(30) not null,
+	city varchar(30) not null,
+	province varchar(30), 
+	payRate decimal(8,2), 
+	foreign key(compName) references sponsorCompany(compName) on delete cascade
+);
+
+
+
+
+
+
+
+
+
+
