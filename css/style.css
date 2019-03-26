@@ -77,6 +77,7 @@ nav a::before {
   width: 0%;
 
   transition: all ease-in-out 250ms;
+	top: 10px;
 }
 
 nav a:hover::before {
@@ -87,7 +88,8 @@ nav a:hover::before {
   padding-top: 700px;
 	background-size: cover;
   background:url('../img/toronto.jpg') no-repeat -650px -200px;
-  border-bottom:#ffffff 3px solid;
+	border-top:#000000 1px solid;
+  border-bottom:#000000 1px solid;
 	font: 40px/1.5 Eth, Helvetica, sans-serif;
 }
 
