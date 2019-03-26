@@ -7,8 +7,8 @@ body {
 }
 
 .container {
-	width: 80%;
-	margin: 0 auto;
+	width: 100%;
+	margin-right: 4px;
 }
 
 header {
@@ -31,19 +31,21 @@ header::after {
 
 nav {
   float: right;
+	height:60px;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+	right:400px;
 }
 
 nav li {
   display: inline-block;
-  margin-left: 70px;
+  margin-left: 40px;
+	margin-right: 42px;
   padding-top: 23px;
-
   position: relative;
 }
 
@@ -76,8 +78,13 @@ nav a:hover::before {
 }
 
 #showcase{
-  padding-top: 600px;
-  min-height:430;
-  background:url('../img/toronto.jpg') no-repeat 0 -300px;
-  border-bottom:#000000 3px solid;
+  padding-top: 1000px;
+	background-size: cover;
+  background:url('../img/toronto.jpg') no-repeat -650px -200px;
+  border-bottom:#ffffff 3px solid;
+}
+
+.box1{
+	  background-color: #ffffff;
+		
 }
