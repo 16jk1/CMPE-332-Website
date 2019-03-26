@@ -31,7 +31,7 @@ $surname = $_POST["lastname"];
 $s_email = $_POST["email"];
 $rate = 50.00;
 $hotelroom = mt_rand(1,100)%3 + 500;
-echo "$s_id,$givenName,$surname,$s_email,$rate,$hotelroom";
+
 echo "Hey $givenName!";
 echo "Your Hotel Room Number is $hotelroom.";
 echo "You must pay $rate.";
