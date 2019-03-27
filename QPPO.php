@@ -23,7 +23,7 @@
 <body>
 
 <div class="table-container">
-  <h2 class="table-title">Employee Information</h2>
+  <h2 class="table-title">QPPO Committee</h2>
   <?php
 
   echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
@@ -40,10 +40,9 @@
   while ($row = $stmt->fetch()) {
   	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
   }
-
-
   ?>
   </table>
+
 </div>
 </body>
 </html>

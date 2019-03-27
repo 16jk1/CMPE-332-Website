@@ -37,9 +37,11 @@
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
 <div class="table-container">
+
   <?php
 
   $date = $_POST["date"];
+
 
   echo "<h2 class="table-title">$date</h2>";
   echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th><th>Date</th></tr>";
@@ -59,10 +61,10 @@
   	echo "<tr><td>".$row["sessionName"]."</td><td>".$row["startTime"]."</td><td>".$row["endTime"]."</td><td>".$row["roomLocation"]."</td><td>".$row["date"]."</td></tr>";
   }
 
-
   ?>
   </table>
 </div>
+
 
 <h2><a href="changescheduletime.php">Change Schedule</a></h2>
 

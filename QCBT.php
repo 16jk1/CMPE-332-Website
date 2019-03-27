@@ -14,33 +14,25 @@
   <li><a href="schedule.php">Schedule</a></li>
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
-  <li><a href="registration.html">Registration</a></li>
-    <li><a href="totalReg.php">Total Registration</a></li>
+  <li><a href="registration.html">Registration</a></li>  
+    <li><a href="totalReg.php">Total Registration</a></li>  
 </div>
 </ul>
 </div>
 
 <body>
 <div class="table-container">
-  <h2 class="table-title">QTMA Committee</h2>
-  <?php
+<h2 class="table-title">QCBT Committee</h2>
+<?php
 
-  echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
-  #connect to the database
-  $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+#connect to the database
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-  $sql = "select fName, lName from committeeMember where commName= 'QTMA'";
-  $stmt = $pdo->prepare($sql);   #create the query
-  $stmt->execute();   #bind the parameters
-
-  #stmt contains the result of the program execution
-  #use fetch to get results row by row.
-  while ($row = $stmt->fetch()) {
-  	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
-  }
-
-
+$sql = "select fName, lName from committeeMember where commName= 'QCBT'";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute();   #bind the parameters
 
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
@@ -53,4 +45,4 @@ while ($row = $stmt->fetch()) {
 </table>
 </div>
 </body>
-</html>
+</html> 

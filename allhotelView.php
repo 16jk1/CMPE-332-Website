@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -38,10 +38,8 @@
 <br>
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
-
-<h2>Hotel Room #500</h2>
-
-
+<div class="table-container">
+<h2 class="table-title">Hotel Room #500</h2>
 <?php
 
 $hotel500 = "500";
@@ -77,8 +75,9 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
-<h2>Hotel Room #501</h2>
+</div>
+<div class="table-container">
+<h2 class="table-title">Hotel Room #501</h2>
 <?php
 
 $hotel500 = "500";
@@ -112,8 +111,9 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
-<h2>Hotel Room #502</h2>
+</div>
+<div class="table-container">
+<h2 class="table-title">Hotel Room #502</h2>
 <?php
 
 $hotel500 = "500";
@@ -149,8 +149,9 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
-<h2>Hotel Room #503</h2>
+</div>
+<div class="table-container">
+<h2 class="table-title">Hotel Room #503</h2>
 <?php
 
 
@@ -183,8 +184,9 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
-<h2>Hotel Room #504</h2>
+</div>
+<div class="table-container">
+<h2 class="table-title">Hotel Room #504</h2>
 <?php
 
 echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
@@ -216,8 +218,9 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
-<h2>Hotel Room #505</h2>
+</div>
+<div class="table-container">
+<h2 class="table-title">Hotel Room #505</h2>
 <?php
 
 echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
@@ -249,7 +252,7 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 
 </body>
 </html> 

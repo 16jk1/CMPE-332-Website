@@ -120,7 +120,7 @@ nav a:hover::before {
 }
 
 #showcase2 p{
-  margin-top:-15%;
+  margin-top:-11%;
 	margin-left:40%;
   color: #000000;
   font-size:30px;
@@ -139,7 +139,7 @@ nav a:hover::before {
 
 #showcase3 h3{
   margin-top:-23%;
-	margin-left:6%;
+	margin-left:3%;
   color: #ffffff;
   font-size:200px;
 	margin-bottom: -5%;
@@ -147,8 +147,8 @@ nav a:hover::before {
 }
 
 #showcase3 p{
-  margin-top:-15%;
-	margin-left:40%;
+  margin-top:-11%;
+	margin-left:47%;
   color: #ffffff;
   font-size:30px;
 	font-weight: bold;

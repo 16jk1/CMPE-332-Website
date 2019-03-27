@@ -32,23 +32,43 @@ $endtime = $_POST["endtime"];
 $date = $_POST["date"];
 $location = $_POST["location"];
 
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select startTime, endTime, roomLocation, date from session where startTime = '$starttime' and endTime = '$endtime' and roomLocation = '$location' 
-and date = '$date' and sessionName != '$event'";
-$stmt = $pdo->prepare($sql2);
-$stmt->execute();
-	
-if($stmt->rowCount() > 0){
-	echo "You cannot change to that schedule! Already taken.";
-}
-else{
-#connect to the database
-echo "Everything has successfully changed";
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "update session set startTime = '$starttime', endTime = '$endtime', roomLocation = '$location', date = '$date' where sessionName = '$event'";
-$pdo->exec($sql); 
-}
+$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+$sql2 = "select  roomLocation, date from session where roomLocation = '$location' and date = '$date' and sessionName != '$event'";
+$stmt = $pdo->prepare($sql2);
+$stmt->execute();	
+	if ($stmt->rowCount() > 0){
+		$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+		$sql2 = "select startTime from session where roomLocation = '$location' and date = '$date' and sessionName != '$event'";
+		$stmt = $pdo->prepare($sql2);
+		$stmt->execute();
+		$startresult = $stmt->fetchColumn();
+		
+		$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+		$sql3 = "select endTime from session where roomLocation = '$location' and date = '$date' and sessionName != '$event'";
+		$stmt = $pdo->prepare($sql3);
+		$stmt->execute();
+		$endresult = $stmt->fetchColumn();
+		if( $starttime >= $startresult && $starttime <= $endresult || $endtime >= $startresult && $endtime <= $endresult){
+				echo "You cannot change to that schedule! Already taken.";
+		}
+		else {
+		#connect to the database
+			echo "Everything has successfully changed";
+			$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+
+			$sql = "update session set startTime = '$starttime', endTime = '$endtime', roomLocation = '$location', date = '$date' where sessionName = '$event'";
+			$pdo->exec($sql); 	
+			
+		}
+	}else{
+				#connect to the database
+			echo "Everything has successfully changed";
+			$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+
+			$sql = "update session set startTime = '$starttime', endTime = '$endtime', roomLocation = '$location', date = '$date' where sessionName = '$event'";
+			$pdo->exec($sql); 	
+	}
 
 ?>
 </table>

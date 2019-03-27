@@ -31,7 +31,7 @@ $surname = $_POST["lastname"];
 $s_email = $_POST["email"];
 $rate = 50.00;
 $hotelroom = mt_rand(1,100)%5 + 500;
-
+$notfull = false;
 while($notfull == false){
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 $sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '$hotelroom'";
@@ -45,8 +45,14 @@ else if ($hotelroom == 501)
 	$numbed = 1;
 else if ($hotelroom == 502)
 	$numbed = 3;
+else if ($hotelroom == 503)
+	$numbed = 5;
+else if ($hotelroom == 504)
+	$numbed = 4;
+else if ($hotelroom == 505)
+	$numbed = 2;
 
-if ( $result == $numbed){
+if ($result == $numbed){
 	$hotelroom = mt_rand(1,100)%5 + 500;
 }
 else	
