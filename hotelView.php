@@ -38,7 +38,7 @@
 <br>
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
-
+#hotel
 <div class="table-container">
 <?php
 
@@ -47,7 +47,7 @@ $room = $_POST["room"];
 echo "<h2>Hotel Room #$room</h2>";
 
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '$room'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '$room'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -70,7 +70,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 If($room != "All Rooms")
-	$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '$room'";
+	$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '$room'";
 else
 	header("Location: allhotelView.php");
 $stmt = $pdo->prepare($sql);   #create the query

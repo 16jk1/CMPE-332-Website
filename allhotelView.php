@@ -50,7 +50,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '500'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '500'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -62,7 +62,7 @@ else
 	echo "Room is not Full";
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '500'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '500'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$hotel500]);   #bind the parameters
 
@@ -88,7 +88,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '501'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '501'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -98,7 +98,7 @@ if ( $result == 1){
 }
 else	
 	echo "Room is not Full";
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '501'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '501'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$hotel501]);   #bind the parameters
 
@@ -124,7 +124,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '502'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '502'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -136,7 +136,7 @@ else
 	echo "Room is not Full";
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '502'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '502'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([$hotel502]);   #bind the parameters
 
@@ -159,7 +159,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '503'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '503'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -171,7 +171,7 @@ else
 	echo "Room is not Full";
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '503'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '503'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
@@ -193,7 +193,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '504'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '504'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -205,7 +205,7 @@ else
 	echo "Room is not Full";
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '504'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '504'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
@@ -227,7 +227,7 @@ echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '505'";
+$sql2 = "select count(ID) as num from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '505'";
 $stmt = $pdo->prepare($sql2);
 $stmt->execute();
 $result = $stmt->fetchColumn();
@@ -239,7 +239,7 @@ else
 	echo "Room is not Full";
 $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-$sql = "select fName, lName from student, hotelroom where student.hotelRoomNum = hotelroom.roomNum and hotelRoomNum= '505'";
+$sql = "select fName, lName from student, hotelRoom where student.hotelRoomNum = hotelRoom.roomNum and hotelRoomNum= '505'";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute();   #bind the parameters
 
