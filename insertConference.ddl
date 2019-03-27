@@ -7,6 +7,14 @@ insert into committee values ("QPPO", 5, "Sponsorship");
 insert into committeeMember values ("Derick", "Chan", "QTMA");
 insert into committeeMember values ("Kevin", "Liu", "QCBT");
 insert into committeeMember values ("Andrew", "Yang", "QPPO");
+insert into committeeMember values ("Adam", "Doom", "QTMA");
+insert into committeeMember values ("Eve", "New", "QCBT");
+insert into committeeMember values ("Justin", "Porch", "QPPO");
+insert into committeeMember values ("Carrie", "Help", "QTMA");
+insert into committeeMember values ("Lorrie", "Legend", "QCBT");
+insert into committeeMember values ("Annie", "Red", "QPPO");
+insert into committeeMember values ("Doris", "Queen", "QPPO");
+insert into committeeMember values ("Alex", "Nyugen", "QPPO");
 /*Session Tuples*/
 insert into session values('BlockChain Developer Workshop', '9:00:00', '9:50:00', 'Etherington AUD','03/24/2019');
 insert into session values ("Systems Engineering Workshop", '9:00:00', '9:40:00', "Mitchell AUD",'03/24/2019');
