@@ -29,19 +29,19 @@
     #$schedule = [session];
 
 
-    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+    echo "<table><tr><th>First Name</th><th>Last Name</th><th>Email</th></tr>";
 
     #connect to the database
     $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-    $sql = "select fName, lName FROM student";
+    $sql = "select fName, lName, email FROM student";
     $stmt = $pdo->prepare($sql);   #create the query
     $stmt->execute();   #bind the parameters
 
     #stmt contains the result of the program execution
     #use fetch to get results row by row.
     while ($row = $stmt->fetch()) {
-    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["email"]."</td></tr>";
     }
 
 
@@ -57,19 +57,19 @@
     #$schedule = [session];
 
 
-    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+    echo "<table><tr><th>First Name</th><th>Last Name</th><th>Profession</th><th>Email</th></tr>";
 
     #connect to the database
     $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-    $sql = "select fName, lName FROM professional";
+    $sql = "select fName, lName, profession, email FROM professional";
     $stmt = $pdo->prepare($sql);   #create the query
     $stmt->execute();   #bind the parameters
 
     #stmt contains the result of the program execution
     #use fetch to get results row by row.
     while ($row = $stmt->fetch()) {
-    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["profession"]."</td><td>".$row["email"]."</td></tr>";
     }
 
 
@@ -84,19 +84,19 @@
     #$schedule = [session];
 
 
-    echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+    echo "<table><tr><th>First Name</th><th>Last Name</th><th>Company</th><th>Email</th></tr>";
 
     #connect to the database
     $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
 
-    $sql = "select fName, lName FROM sponsor";
+    $sql = "select fName, lName, company, email FROM sponsor";
     $stmt = $pdo->prepare($sql);   #create the query
     $stmt->execute();   #bind the parameters
 
     #stmt contains the result of the program execution
     #use fetch to get results row by row.
     while ($row = $stmt->fetch()) {
-    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td></tr>";
+    	echo "<tr><td>".$row["fName"]."</td><td>".$row["lName"]."</td><td>".$row["company"]."</td><td>".$row["email"]."</td></tr>";
     }
 
 

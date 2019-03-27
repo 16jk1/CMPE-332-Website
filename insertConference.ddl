@@ -7,10 +7,22 @@ insert into committee values ("QPPO", 5, "Sponsorship");
 insert into committeeMember values ("Derick", "Chan", "QTMA");
 insert into committeeMember values ("Kevin", "Liu", "QCBT");
 insert into committeeMember values ("Andrew", "Yang", "QPPO");
+insert into committeeMember values ("Adam", "Doom", "QTMA");
+insert into committeeMember values ("Eve", "New", "QCBT");
+insert into committeeMember values ("Justin", "Porch", "QPPO");
+insert into committeeMember values ("Carrie", "Help", "QTMA");
+insert into committeeMember values ("Lorrie", "Legend", "QCBT");
+insert into committeeMember values ("Annie", "Red", "QPPO");
+insert into committeeMember values ("Doris", "Queen", "QPPO");
+insert into committeeMember values ("Alex", "Nyugen", "QPPO");
 /*Session Tuples*/
 insert into session values('BlockChain Developer Workshop', '9:00:00', '9:50:00', 'Etherington AUD','03/24/2019');
 insert into session values ("Systems Engineering Workshop", '9:00:00', '9:40:00', "Mitchell AUD",'03/24/2019');
 insert into session values("Mobile APP Workshop", '13:00:00', '13:50:00', "BioSci 1129",'03/24/2019');
+insert into session values('Web Front-End Workshop', '9:00:00', '10:00:00', 'Etherington AUD','03/23/2019');
+insert into session values ("Web Back-End Workshop", '11:00:00', '12:00:00', "Mitchell AUD",'03/23/2019');
+insert into session values("Ice Breaker Workshop", '13:00:00', '14:00:00', "BioSci 1129",'03/28/2019');
+
 /*Hotel Room Tuples*/
 insert into hotelRoom values (500,2);
 insert into hotelRoom values (501,1);

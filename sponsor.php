@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 
 </head>
 
@@ -22,8 +22,8 @@
 </div>
 
 <body>
-
-<h2>Sponsors</h2>
+<div class="table-container">
+<h2 class="table-title">Sponsors</h2>
 <?php
 	
 echo "<table><tr><th>Company</th><th>Sponsorship Level</th><th>Email Sent</th></tr>";
@@ -46,11 +46,10 @@ $sql = "select * FROM SponsorCompany";
 
 ?>
 </table>
+</div>
 
-
-<h2>Jobs Available</h2>
-
-
+<div class="table-container">
+<h2 class="table-title">Jobs Available</h2>
 <?php
 
 #$schedule = [session];
@@ -74,7 +73,7 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 <br>
         <form action="DeleteSponsor.php" method="post">
 

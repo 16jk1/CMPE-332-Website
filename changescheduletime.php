@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -28,6 +28,9 @@
 <option value="BlockChain Developer Workshop">BlockChain Developer Workshop</option>
 <option value="Mobile App Workshop">Mobile App Workshop</option>
 <option value="Systems Engineering Workshop">Systems Engineering Workshop</option>
+<option value="Ice Breaker Workshop">Ice Breaker Workshop</option>
+<option value="Web Back-End Workshop">Web Back-End Workshop</option>
+<option value="Web Front-End Workshop">Web Front-End Workshop</option>
 </select>
 
 <h2>Pick a Start Time</h2>
@@ -46,14 +49,14 @@
 <h2>Pick a End Time</h2>
 <select name="endtime" id="schedule" required>
 <option value="" selected="selected">Select a time..</option>
-<option value="10:00:00">10:00:00</option>
-<option value="11:00:00">11:00:00</option>
-<option value="12:00:00">12:00:00</option>
-<option value="13:00:00">13:00:00</option>
-<option value="14:00:00">14:00:00</option>
-<option value="15:00:00">15:00:00</option>
-<option value="16:00:00">16:00:00</option>
-<option value="17:00:00">17:00:00</option>
+<option value="9:50:00">9:50:00</option>
+<option value="10:50:00">10:50:00</option>
+<option value="11:50:00">11:50:00</option>
+<option value="12:50:00">12:50:00</option>
+<option value="13:50:00">13:50:00</option>
+<option value="14:50:00">14:50:00</option>
+<option value="15:50:00">15:50:00</option>
+<option value="16:50:00">16:50:00</option>
 </select>
 
 <h2>Pick a Date</h2>
@@ -78,6 +81,7 @@
 <input type="submit" name="submit" value="Change Selected Values"/>
 </form>
 <br>
+<div class="table-container">
 <?php
 
 
@@ -99,6 +103,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 </body>
 </html> 

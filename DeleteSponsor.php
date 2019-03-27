@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 
 </head>
 
@@ -65,10 +65,8 @@ $conn = null;
 
 ?>
 
-
-<h2>Jobs Available</h2>
-
-
+<div class="table-container">
+<h2 class="table-title">Jobs Available</h2>
 <?php
 
 #$schedule = [session];
@@ -92,6 +90,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 </body>
 </html> 
