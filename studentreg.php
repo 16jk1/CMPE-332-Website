@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -14,32 +14,55 @@
   <li><a href="schedule.php">Schedule</a></li>
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
-  <li><a href="registration.html">Registration</a></li>  
-    <li><a href="totalReg.php">Total Registration</a></li>  
+  <li><a href="registration.html">Registration</a></li>
+    <li><a href="totalReg.php">Total Registration</a></li>
 </div>
 </ul>
 </div>
 
 <body>
 
+<div class="form-container">
+  <h2>Student Registration</h2>
 
-<h2>Student Registration</h2>
+  <form action="studentregphp.php" method="POST">
+    <div class="form-reg">
+      <div class="group">
+        <input type="text" name="sid" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Student ID</label>
+        <!-- placeholder = "00000000" -->
+      </div>
 
-<form action="studentregphp.php" method="POST">
-<p>Student ID:</p>
-<input type="text" name="sid" placeholder = "00000000" required>
-<br>
-<p>First name:</p>
-<input type="text" name="firstname" placeholder = "Bob" required>
-<br>
-<p>Last name:</p>
-<input type="text" name="lastname" placeholder = "Lee"  required>
-<br>
-<p>Email:</p>
-<input type="text" name="email" placeholder = "****@hotmail.com"  required><br>
-<input type="submit">
-</form> 
+      <div class="group">
+        <input type="text" name="firstname" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>First Name</label>
+        <!-- placeholder = "Bob" -->
+      </div>
+    </div>
+    <div class="form-reg">
+      <div class="group">
+        <input type="text" name="lastname" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Last Name</label>
+        <!-- placeholder = "Lee" -->
+      </div>
 
+      <div class="group">
+        <input type="text" name="email" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Email</label>
+        <!-- placeholder = "****@hotmail.com" -->
+      </div>
+    </div>
+    <input class="submit" type="submit">
+  </form>
+</div>
 
 </body>
-</html> 
+</html>
