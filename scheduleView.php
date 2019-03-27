@@ -14,8 +14,8 @@
   <li><a href="schedule.php">Schedule</a></li>
   <li><a href="sponsor.php">Sponsor</a></li>
   <li><a href="conference.php">Conference</a></li>
-  <li><a href="registration.html">Registration</a></li>  
-    <li><a href="totalReg.php">Total Registration</a></li>  
+  <li><a href="registration.html">Registration</a></li>
+    <li><a href="totalReg.php">Total Registration</a></li>
 </div>
 </ul>
 </div>
@@ -37,33 +37,36 @@
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
 <div class="table-container">
-<?php
 
-$date = $_POST["date"];
-	
-echo "<h2>$date</h2>";
-echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th><th>Date</th></tr>";
+  <?php
 
-#connect to the database
-$pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
-If($date != "All Events")
-	$sql = "select * FROM session where date = '$date'";
-else
-	$sql = "select * FROM session";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute();   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["sessionName"]."</td><td>".$row["startTime"]."</td><td>".$row["endTime"]."</td><td>".$row["roomLocation"]."</td><td>".$row["date"]."</td></tr>";
-}
+  $date = $_POST["date"];
 
 
-?>
-</table>
+  echo "<h2 class="table-title">$date</h2>";
+  echo "<table><tr><th>Session Name</th><th>Start Time</th><th>End Time</th><th>Room Location</th><th>Date</th></tr>";
+
+  #connect to the database
+  $pdo = new PDO('mysql:host=localhost;dbname=conference2', "root", "");
+  If($date != "All Events")
+  	$sql = "select * FROM session where date = '$date'";
+  else
+  	$sql = "select * FROM session";
+  $stmt = $pdo->prepare($sql);   #create the query
+  $stmt->execute();   #bind the parameters
+
+  #stmt contains the result of the program execution
+  #use fetch to get results row by row.
+  while ($row = $stmt->fetch()) {
+  	echo "<tr><td>".$row["sessionName"]."</td><td>".$row["startTime"]."</td><td>".$row["endTime"]."</td><td>".$row["roomLocation"]."</td><td>".$row["date"]."</td></tr>";
+  }
+
+  ?>
+  </table>
 </div>
+
+
 <h2><a href="changescheduletime.php">Change Schedule</a></h2>
 
 </body>
-</html> 
+</html>

@@ -54,7 +54,9 @@ li.dropdown {
 
 .table-container {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  padding: 160px 100px 0px 160px;
+  padding: 60px 15% 40px 15%;
+  margin: 0px 10%;
+  /* background: #f6ec14; */
 }
 
 table {
@@ -70,6 +72,7 @@ td, th {
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(odd){background-color: white;}
 
 tr:hover {background-color: #ddd;}
 
@@ -78,6 +81,123 @@ th {
   padding-bottom: 12px;
   text-align: left;
   /* background-image: linear-gradient(to bottom right, #8A2BE2, #1E90FF); */
-  background-color: #8A2BE2	;
+  background-color: #5E87B2;
   color: white;
 }
+
+/* INPUT */
+.group 			  {
+  position:relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.group input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.group input:focus 		{ outline:none; }
+
+label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.group input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5E87B2;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5E87B2;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+.group input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+.delete {
+  font-size: 14px;
+  background-color: #9F0000;
+  color: white;
+  border-radius: 4px;
+  padding: 16px 32px;
+  margin: 16px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submit {
+  font-size: 14px;
+  background-color: #32CD32;
+  color: white;
+  border-radius: 4px;
+  padding: 16px 32px;
+  margin: 32px 16px 0px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-container {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 60px 25% 0px 25%;
+}
+
+.form-org {
+  display: flex;
+  justify-content: center;
+}
+
+.form-reg {
+  display: flex;
+  justify-content: space-around;
+}
+
