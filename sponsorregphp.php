@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
-<div class="navi">
-<ul>
-<div class ="navi2">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="QTMA.php">QTMA</a></li>
-  <li><a href="QPPO.php">QPPO</a></li>
-  <li><a href="Hotel.php">Hotel</a></li>
-  <li><a href="schedule.php">Schedule</a></li>
-  <li><a href="sponsor.php">Sponsor</a></li>
-  <li><a href="conference.php">Conference</a></li>
-  <li><a href="registration.html">Registration</a></li>
-    <li><a href="totalReg.php">Total Registration</a></li>  
-</div>
-</ul>
-</div>
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="committee.php" class="dropbtn">Committee</a>
+          <div class="dropdown-content">
+            <a href="QTMA.php">QTMA</a>
+            <a href="QPPO.php">QPPO</a>
+            <a href="QCBT.php">QCBT</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="Hotel.php">Hotel</a></li>
+        <li class="nav-item"><a href="schedule.php">Schedule</a></li>
+        <li class="nav-item"><a href="sponsor.php">Sponsor</a></li>
+        <li class="nav-item"><a href="conference.php">Conference</a></li>
+        <li class="nav-item"><a href="registration.html">Registration</a></li>
+        <li class="nav-item"><a href="totalReg.php">Total Registration</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
 <body>
 <h2>Sponsor</h2>
@@ -47,8 +56,8 @@ $sql = "insert into sponsor(fName, lName, rate, email, company, sponsorID) value
 $pdo->exec($sql);   #bind the parameters
 
 echo "Hello $givenName from $company!";
-echo "Your Sponsor ID is $s_id.";
-echo "You must pay $rate.";
+echo "\n Your Sponsor ID is $s_id.";
+echo "\n You must pay $rate.";
 }
 #stmt contains the result of the program execution
 #use fetch to get results row by row.
