@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -39,7 +39,7 @@
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
 
-
+<div class="table-container">
 <?php
 
 $room = $_POST["room"];
@@ -85,6 +85,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 </body>
 </html> 

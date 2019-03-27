@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -21,9 +21,8 @@
 </div>
 
 <body>
-<h2>Employee Information</h2>
-
-
+<div class="table-container">
+<h2 class="table-title">QPPO Committee</h2>
 <?php
 
 echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
@@ -44,5 +43,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+</div>
 </body>
 </html> 

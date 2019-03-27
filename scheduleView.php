@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -36,7 +36,7 @@
 <br>
 <input type="submit" name="submit" value="See Selected Values"/>
 </form>
-
+<div class="table-container">
 <?php
 
 $date = $_POST["date"];
@@ -62,7 +62,7 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 <h2><a href="changescheduletime.php">Change Schedule</a></h2>
 
 </body>

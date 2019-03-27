@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="indexCSS.css" type="text/css" rel="stylesheet" >
+<link href="schedule.css" type="text/css" rel="stylesheet" >
 </head>
 
 <div class="navi">
@@ -78,6 +78,7 @@
 <input type="submit" name="submit" value="Change Selected Values"/>
 </form>
 <br>
+<div class="table-container">
 <?php
 
 
@@ -99,6 +100,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-
+</div>
 </body>
 </html> 
